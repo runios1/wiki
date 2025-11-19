@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %} # If it got to here the result has no exact match.
+{% block title %}
+    {{query}} Search Results
+{% endblock %}
+{% block body %}
+    <h1>Search Results</h1>
+    {% if results %}
+        <ul>
+            {% for result in results %}
+                <li><a href="{% url 'entry' result %}">{{ result }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+{% endblock %}
